@@ -18,7 +18,7 @@
         font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 600;
-        font-size: 30px;
+        font-size: 10px;
         line-height: 37px;
         letter-spacing: 0.1em;
 
@@ -26,9 +26,10 @@
         cursor: pointer;
     }
     .button-size {
-        height: 100px;
-        width: 605px;
-        border-radius: 20px;
+        height: 54px;
+        width: 326px;
+        border-radius: 15px;
+        font-size: 24px;
     }
     .btn:hover {
         background: rgba(218, 71, 93, 0.5);

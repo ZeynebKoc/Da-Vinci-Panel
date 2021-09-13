@@ -3,6 +3,6 @@ import LoginPage from "./pages/LoginPage.svelte";
 
 export const routes = {
     "/": LoginPage,
-    "/about": HomePage,
+    "/home": HomePage,
     "*": LoginPage,
 };
