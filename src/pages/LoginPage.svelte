@@ -1,6 +1,6 @@
 <script>
     import Button from "../component/Button.svelte";
-    let buttonSize = true;
+    let buttonSizeBig = true;
 
     let srcbgLoginPage = "./images/images-lg-page/bg-loginPage.png";
     let srcIconPerson = "./images/images-lg-page/icon-person.png";
@@ -11,7 +11,7 @@
     const togglePassword = () => {
         let showPassword = document.getElementById("password");
         showPassword.type =
-        showPassword.type == "password" ? "text" : "password";
+            showPassword.type == "password" ? "text" : "password";
     };
     /* show-hide password */
 </script>
@@ -24,6 +24,7 @@
                 <img src={srcIconEmail} class="icon-email" alt="Email Icon" />
                 <input
                     type="email"
+                    name="e-mail"
                     minlength="10"
                     maxlength="24"
                     size="24"
@@ -40,6 +41,7 @@
                     alt="Password Icon"
                 />
                 <input
+                    name="password"
                     id="password"
                     type="password"
                     size="21"
@@ -62,7 +64,7 @@
                 <p class="forgot-text">Forgot Password?</p>
             </div>
 
-            <Button buttonName="LOGIN" {buttonSize} />
+            <Button buttonName="LOGIN" {buttonSizeBig} />
         </div>
     </div>
 </div>
