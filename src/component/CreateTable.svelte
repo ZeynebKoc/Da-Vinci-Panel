@@ -2,91 +2,111 @@
     import Button from "./Button.svelte";
 
     let srcbgCreateTable = "./images/images-create-table/bg-create-table.png";
+
+    export let showCreateTablePopUp;
+    export let closeCreateTablePopUp;
 </script>
 
-<div class="bg-alpha">
-    <div
-        class="srcbgCreateTable"
-        style={`background-image: url(${srcbgCreateTable});`}
-    >
-        <div class="createTables-bg">
-            <div class="createTables-content">
-                <div class="content-section">
-                    <div class="horizontal">
-                        <h3>Name</h3>
-                        <input
-                            name="name"
-                            type="text"
-                            autocomplete="on"
-                            required
-                            value=""
-                        />
-                    </div>
-                    <div class="login-line-1" />
-                    <h4>Table name is required</h4>
-                </div>
-
-                <div class="content-section">
-                    <div class="horizontal">
-                        <h3>Player Count</h3>
-                        <input
-                            name="name"
-                            type="text"
-                            autocomplete="on"
-                            required
-                            value="0"
-                            size="3"
-                        />
-                    </div>
-                    <div class="login-line-1" />
-                </div>
-
-                <div class="content-section">
-                    <div class="horizontal">
-                        <div class="vertical">
+{#if showCreateTablePopUp}
+    <main class:closeCreateTablePopUp>
+        <div class="bg-alpha">
+            <div
+                class="srcbgCreateTable"
+                style={`background-image: url(${srcbgCreateTable});`}
+            >
+                <div class="createTables-bg">
+                    <div class="createTables-content">
+                        <div class="content-section">
                             <div class="horizontal">
-                                <h3>Start</h3>
-                                <input name="name" type="time" required />
+                                <h3>Name</h3>
+                                <input
+                                    name="name"
+                                    type="text"
+                                    autocomplete="on"
+                                    required
+                                    value=""
+                                />
                             </div>
-                            <div class="login-line-2" />
+                            <div class="login-line-1" />
+                            <h4>Table name is required</h4>
                         </div>
 
-                        <div class="vertical">
+                        <div class="content-section">
                             <div class="horizontal">
-                                <h3>Finish</h3>
-                                <input name="name" type="time" required />
+                                <h3>Player Count</h3>
+                                <input
+                                    name="name"
+                                    type="text"
+                                    autocomplete="on"
+                                    required
+                                    value="0"
+                                    size="3"
+                                />
                             </div>
-                            <div class="login-line-2" />
+                            <div class="login-line-1" />
+                        </div>
+
+                        <div class="content-section">
+                            <div class="horizontal">
+                                <div class="vertical">
+                                    <div class="horizontal">
+                                        <h3>Start</h3>
+                                        <input
+                                            name="name"
+                                            type="time"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="login-line-2" />
+                                </div>
+
+                                <div class="vertical">
+                                    <div class="horizontal">
+                                        <h3>Finish</h3>
+                                        <input
+                                            name="name"
+                                            type="time"
+                                            required
+                                        />
+                                    </div>
+                                    <div class="login-line-2" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <div on:click>
+                                <Button buttonName="CANCEL" />
+                            </div>
+                            <Button buttonName="CREATE" />
                         </div>
                     </div>
-                </div>
-
-                <div class="buttons">
-                    <Button buttonName="CANCEL" />
-                    <Button buttonName="CREATE" />
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </main>
+{/if}
 
 <style>
+    main {
+        position: fixed;
+        z-index: 2;
+    }
     .bg-alpha {
+        position: fixed;
+        height: 100%;
         display: flex;
         justify-content: center;
         width: 1440px;
         background: rgba(78, 77, 77, 0.67);
-        z-index: 0;
     }
 
     .srcbgCreateTable {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 600px;
         width: 750px;
-        z-index: 1;
         margin-top: 230px;
     }
 

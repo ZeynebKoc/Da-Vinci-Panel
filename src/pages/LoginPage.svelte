@@ -46,6 +46,8 @@
                     type="password"
                     size="21"
                     placeholder="Password"
+                    minlength="4"
+                    maxlength="18"
                     required
                 />
                 <i

@@ -1,10 +1,17 @@
 <script>
+    import CreateTable from "../component/CreateTable.svelte";
     import Button from "../component/Button.svelte";
-    let buttonSizeMedium = true;
 
     let srcbgHomePage = "./images/images-homepage/bg-homePage.png";
+    let showCreateTablePopUp = false;
+    let buttonSizeMedium = true;
+
+    export const toggleCreateTablePopUp = () => {
+        showCreateTablePopUp = !showCreateTablePopUp;
+    };
 </script>
 
+<CreateTable {showCreateTablePopUp} on:click={toggleCreateTablePopUp} />
 <div class="srcbgHomePage" style={`background-image: url(${srcbgHomePage});`}>
     <ul>
         <li>
@@ -99,7 +106,7 @@
             <div class="login-line-1" />
         </div>
 
-        <div class="button">
+        <div class="button" on:click={toggleCreateTablePopUp}>
             <Button buttonName="Add Table" {buttonSizeMedium} />
         </div>
     </div>
@@ -150,7 +157,6 @@
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
         height: 566px;
         width: 886px;
-        z-index: 1;
         margin-top: 649px;
         margin-bottom: 124px;
         margin-left: 277px;
