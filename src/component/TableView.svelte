@@ -66,6 +66,7 @@
         justify-content: center;
         height: 400px;
         width: 425px;
+        margin-bottom: 50px;
     }
 
     .srcbgTableView-bg {
@@ -118,6 +119,7 @@
         line-height: 29px;
         color: #da475d;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
     }
 
     h3 {
@@ -143,7 +145,7 @@
         position: relative;
         bottom: 10px;
     }
-    
+
     select {
         position: relative;
         bottom: 25px;

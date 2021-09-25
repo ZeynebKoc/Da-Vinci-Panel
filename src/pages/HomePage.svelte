@@ -94,14 +94,27 @@
 
             <div class="horizontal-1">
                 <h3>Who's at cafe?</h3>
-                <div class="personnel-bg">
+                <label>
                     <select class="personnel">
-                        <option />
+                        <option value="" />
                         <option value="Esra">Esra</option>
                         <option value="Zeyneb">Zeyneb</option>
                     </select>
-                    <button class="personnel-close">X</button>
-                </div>
+                    <!-- <div class="personnel-bg">
+                        <button class="personnel-close"
+                            ><img
+                                class="close"
+                                src="./images/images-homepage/close.svg"
+                                alt="close"
+                            />
+                        </button>
+                    </div> -->
+                    <img
+                        class="arrow"
+                        src="./images/images-homepage/iconArrow.svg"
+                        alt="option-arrow"
+                    />
+                </label>
             </div>
             <div class="login-line-1" />
         </div>
@@ -116,10 +129,9 @@
     .srcbgHomePage {
         display: flex;
         flex-direction: column;
-        width: 1440px;
+        max-width: 1440px;
         background: #e5e5e5;
         background-repeat: no-repeat;
-        overflow-y: scroll;
     }
 
     /* navbar */
@@ -205,48 +217,65 @@
         border: none;
         outline: none;
         text-align: right;
+        cursor: pointer;
     }
 
-    .login-line-1 {
-        width: 774px;
+    select {
+        position: relative;
+        left: 25px;
+        appearance: none;
+        min-width: 545px;
+    }
+
+    option {
+        padding: 10px;
+        text-align: left;
+    }
+
+    .arrow {
+        position: relative;
+        right: 7px;
+        top: 5px;
+        pointer-events: none;
+    }
+
+    .login-line-1,
+    .login-line-2 {
+        width: 100%;
         height: 2px;
         background: rgba(5, 5, 5, 0.5);
         margin-bottom: 48px;
     }
 
     .login-line-2 {
-        width: 332px;
-        height: 2px;
-        background: rgba(5, 5, 5, 0.5);
         margin-bottom: 42px;
     }
 
-    .personnel-bg {
+    /* .personnel-bg {
         position: relative;
         bottom: 12px;
         display: flex;
-        align-items: center;
         background: #e6e6e6;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 45px;
         padding: 10px;
-        float: left;
+        text-align: left;
     }
 
     .personnel-close {
         background: #da475d;
-        height: 28px;
-        width: 28px;
+        height: 35px;
+        width: 35px;
         border-radius: 50%;
-        font-weight: 600;
-    }
+        z-index: 2;
+    } */
 
     .button {
         position: relative;
         left: 300px;
     }
 
-    button:hover {
+    /* button:hover {
         color: rgba(255, 255, 255, 0.5);
-    }
+    } */
 </style>
