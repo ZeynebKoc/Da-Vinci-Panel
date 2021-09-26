@@ -1,17 +1,17 @@
 <script>
     export let buttonName;
+    let buttonSize;
     export let buttonSizeBig;
     export let buttonSizeMedium;
 </script>
 
-<main>
-    <button
-        class="btn"
-        class:button-size-big={buttonSizeBig}
-        class:button-size-medium={buttonSizeMedium}
-        >{buttonName}
-    </button>
-</main>
+<button
+    class="btn"
+    class:button-size-big={buttonSizeBig}
+    class:button-size-medium={buttonSizeMedium}
+>
+    <slot name="buttonName" {buttonName} />
+</button>
 
 <style>
     .btn {

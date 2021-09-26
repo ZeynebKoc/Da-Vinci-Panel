@@ -120,7 +120,9 @@
         </div>
 
         <div class="button" on:click={toggleCreateTablePopUp}>
-            <Button buttonName="Add Table" {buttonSizeMedium} />
+            <Button {buttonSizeMedium}>
+                <span slot="buttonName">Add Table</span>
+            </Button>
         </div>
     </div>
 </div>

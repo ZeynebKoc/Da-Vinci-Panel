@@ -76,9 +76,13 @@
 
                         <div class="buttons">
                             <div on:click>
-                                <Button buttonName="CANCEL" />
+                                <Button>
+                                    <span slot="buttonName">CANCEL</span>
+                                </Button>
                             </div>
-                            <Button buttonName="CREATE" />
+                            <Button>
+                                <span slot="buttonName">CREATE</span>
+                            </Button>
                         </div>
                     </div>
                 </div>

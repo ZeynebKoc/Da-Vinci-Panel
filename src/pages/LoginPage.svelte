@@ -66,7 +66,9 @@
                 <p class="forgot-text">Forgot Password?</p>
             </div>
 
-            <Button buttonName="LOGIN" {buttonSizeBig} />
+            <Button {buttonSizeBig}>
+                <span slot="buttonName">LOGIN</span>
+            </Button>
         </div>
     </div>
 </div>
