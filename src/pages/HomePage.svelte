@@ -14,10 +14,8 @@
 <CreateTable {showCreateTablePopUp} on:click={toggleCreateTablePopUp} />
 <div class="srcbgHomePage" style={`background-image: url(${srcbgHomePage});`}>
     <ul>
-        <li>
-            <a class="home" href="#/home">Home</a>
-            <a class="logOut" href="#/">Log Out</a>
-        </li>
+        <li><a class="home" href="#/home">Home</a></li>
+        <li><a class="logOut" href="#/">Log Out</a></li>
     </ul>
 
     <div class="showTables-bg">

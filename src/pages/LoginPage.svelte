@@ -66,9 +66,11 @@
                 <p class="forgot-text">Forgot Password?</p>
             </div>
 
-            <Button {buttonSizeBig}>
-                <span slot="buttonName">LOGIN</span>
-            </Button>
+            <a href="#/home">
+                <Button {buttonSizeBig}>
+                    <span slot="buttonName">LOGIN</span>
+                </Button>
+            </a>
         </div>
     </div>
 </div>
