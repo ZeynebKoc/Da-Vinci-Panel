@@ -1,13 +1,38 @@
 <script>
     import CreateTable from "../component/CreateTable.svelte";
+    import TableView from "../component/TableView.svelte";
     import Button from "../component/Button.svelte";
 
     let srcbgHomePage = "./images/images-homepage/bg-homePage.png";
-    let showCreateTablePopUp = false;
+    /* button component variable */
     let buttonSizeMedium = true;
+    /* pop up variable */
+    let showCreateTablePopUp = false;
 
+    let date = "";
+    let activeTable = "";
+    let activeCustomer = "";
+    let totalTable = "";
+    let totalCustomer = "";
+    let whosAtCafe = "";
+
+    let tables = [
+        {
+            tableName: "",
+            start: "",
+            finish: "",
+            playerCount: "",
+            id: 1,
+        },
+    ];
+    /* pop up function */
     export const toggleCreateTablePopUp = () => {
         showCreateTablePopUp = !showCreateTablePopUp;
+    };
+
+    const addTable = (e) => {
+        const table = e.detail;
+        tables = [table, ...tables];
     };
 </script>
 
@@ -17,8 +42,7 @@
         <li><a class="home" href="#/home">Home</a></li>
         <li><a class="logOut" href="#/">Log Out</a></li>
     </ul>
-
-    <div class="showTables-bg">
+    <form class="showTables-bg">
         <div class="showTables-content">
             <div class="horizontal-1">
                 <h3>Date</h3>
@@ -26,8 +50,8 @@
                     name="date"
                     type="date"
                     required
-                    value="11/08/2012"
                     size="200"
+                    bind:value={date}
                 />
             </div>
             <div class="login-line-1" />
@@ -39,10 +63,10 @@
                         <input
                             name="active-table"
                             type="text"
-                            autocomplete="on"
                             required
-                            value="0"
                             size="3"
+                            placeholder="0"
+                            value={activeTable}
                         />
                     </div>
                     <div class="login-line-2" />
@@ -52,10 +76,10 @@
                         <input
                             name="active-customer"
                             type="text"
-                            autocomplete="on"
                             required
-                            value="0"
                             size="2"
+                            placeholder="0"
+                            value={activeCustomer}
                         />
                     </div>
                     <div class="login-line-2" />
@@ -67,10 +91,10 @@
                         <input
                             name="total-table"
                             type="text"
-                            autocomplete="on"
                             required
-                            value="0"
                             size="3"
+                            placeholder="0"
+                            value={totalTable}
                         />
                     </div>
                     <div class="login-line-2" />
@@ -80,10 +104,10 @@
                         <input
                             name="total-customer"
                             type="text"
-                            autocomplete="on"
                             required
-                            value="0"
                             size="3"
+                            placeholder="0"
+                            value={totalCustomer}
                         />
                     </div>
                     <div class="login-line-2" />
@@ -93,20 +117,12 @@
             <div class="horizontal-1">
                 <h3>Who's at cafe?</h3>
                 <label>
-                    <select class="personnel">
+                    <select class="personnel" bind:value={whosAtCafe}>
                         <option value="" />
                         <option value="Esra">Esra</option>
                         <option value="Zeyneb">Zeyneb</option>
                     </select>
-                    <!-- <div class="personnel-bg">
-                        <button class="personnel-close"
-                            ><img
-                                class="close"
-                                src="./images/images-homepage/close.svg"
-                                alt="close"
-                            />
-                        </button>
-                    </div> -->
+
                     <img
                         class="arrow"
                         src="./images/images-homepage/iconArrow.svg"
@@ -122,14 +138,18 @@
                 <span slot="buttonName">Add Table</span>
             </Button>
         </div>
-    </div>
+    </form>
+</div>
+<div class="table-view-place">
+    <TableView on:addTable={addTable} />
 </div>
 
 <style>
     .srcbgHomePage {
         display: flex;
         flex-direction: column;
-        max-width: 1440px;
+        width: 100%;
+        /* max-width: 1440px; */
         background: #e5e5e5;
         background-repeat: no-repeat;
     }
@@ -251,31 +271,17 @@
         margin-bottom: 42px;
     }
 
-    /* .personnel-bg {
-        position: relative;
-        bottom: 12px;
-        display: flex;
-        background: #e6e6e6;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 45px;
-        padding: 10px;
-        text-align: left;
-    }
-
-    .personnel-close {
-        background: #da475d;
-        height: 35px;
-        width: 35px;
-        border-radius: 50%;
-        z-index: 2;
-    } */
-
     .button {
         position: relative;
         left: 300px;
     }
 
-    /* button:hover {
-        color: rgba(255, 255, 255, 0.5);
-    } */
+    /* show tables */
+    .table-view-place {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        margin-top: 50px;
+    }
 </style>

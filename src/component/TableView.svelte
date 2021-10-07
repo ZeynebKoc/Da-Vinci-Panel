@@ -1,62 +1,80 @@
 <script>
+    import storeData from "../stores/storeData";
     let srcbgTableView = "./images/images-table-view/bg-table-view.png";
+    $: tables = $storeData.tables;
 </script>
 
-<div class="srcbgTableView" style={`background-image: url(${srcbgTableView});`}>
-    <div class="srcbgTableView-bg">
-        <div class="srcbgTableView-content">
-            <div class="table-number">
-                <h2>MASA 01</h2>
-            </div>
-            <select class="personnel">
-                <option />
-            </select>
+{#each tables as table (table.id)}
+    <div
+        class="srcbgTableView"
+        style={`background-image: url(${srcbgTableView});`}
+    >
+        <div class="srcbgTableView-bg">
+            <form class="srcbgTableView-content">
+                <div class="table-number">
+                    <h2>MASA {table.tableName}</h2>
+                </div>
+                <select class="personnel">
+                    <option />
+                </select>
 
-            <div class="content-section">
-                <div>
-                    <div class="horizontal">
-                        <div class="vertical">
-                            <h3>Start</h3>
-                            <input name="name" type="time" required />
-                            <div class="login-line-2" />
-                        </div>
+                <div class="content-section">
+                    <div>
+                        <div class="horizontal">
+                            <div class="vertical">
+                                <h3>Start</h3>
+                                <input
+                                    name="name"
+                                    type="time"
+                                    required
+                                    value={table.start}
+                                />
+                                <div class="login-line-2" />
+                            </div>
 
-                        <div class="vertical">
-                            <h3>Finish</h3>
-                            <input name="name" type="time" required />
-                            <div class="login-line-2" />
+                            <div class="vertical">
+                                <h3>Finish</h3>
+                                <input
+                                    name="name"
+                                    type="time"
+                                    required
+                                    value={table.finish}
+                                />
+                                <div class="login-line-2" />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div>
-                    <h3>Current Game</h3>
-                    <input
-                        name="name"
-                        type="text"
-                        autocomplete="on"
-                        required
-                        value="Harry Potter: Hogwats Battle"
-                    />
-                    <div class="login-line-1" />
-                </div>
+                    <div>
+                        <h3>Current Game</h3>
+                        <input
+                            name="name"
+                            type="text"
+                            autocomplete="on"
+                            required
+                            placeholder="Harry Potter: Hogwats Battle"
+                            bind:value={table.currentGame}
+                        />
+                        <div class="login-line-1" />
+                    </div>
 
-                <div>
-                    <h3>Player Count</h3>
-                    <input
-                        name="name"
-                        type="text"
-                        autocomplete="on"
-                        required
-                        value="0"
-                        size="3"
-                    />
-                    <div class="login-line-1" />
+                    <div>
+                        <h3>Player Count</h3>
+                        <input
+                            name="name"
+                            type="text"
+                            required
+                            size="3"
+                            placeholder="0"
+                            value={table.playerCount}
+                        />
+                        <div class="login-line-1" />
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-</div>
+{/each}
 
 <style>
     .srcbgTableView {

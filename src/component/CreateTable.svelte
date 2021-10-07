@@ -1,102 +1,124 @@
 <script>
+    import storeData from "../stores/storeData";
     import Button from "./Button.svelte";
-
     let srcbgCreateTable = "./images/images-create-table/bg-create-table.png";
-
+    /* pop up variables */
     export let showCreateTablePopUp;
-    export let closeCreateTablePopUp;
+
+    let tableName;
+    let start;
+    let finish;
+    let playerCount;
+
+    const handleSubmit = () => {
+        const newTable = {
+            tableName,
+            start,
+            finish,
+            playerCount,
+            id: Math.random(),
+        };
+        storeData.update((currentObject) => {
+            return {
+                ...currentObject,
+                tables: [...currentObject.tables, newTable],
+            };
+        });
+        showCreateTablePopUp = false;
+    };
+
 </script>
 
 {#if showCreateTablePopUp}
-    <main class:closeCreateTablePopUp>
-        <div class="bg-alpha">
-            <div
-                class="srcbgCreateTable"
-                style={`background-image: url(${srcbgCreateTable});`}
-            >
-                <div class="createTables-bg">
-                    <div class="createTables-content">
-                        <div class="content-section">
-                            <div class="horizontal">
-                                <h3>Name</h3>
-                                <input
-                                    name="name"
-                                    type="text"
-                                    autocomplete="on"
-                                    required
-                                    value=""
-                                />
-                            </div>
-                            <div class="login-line-1" />
-                            <h4>Table name is required</h4>
+    <div class="bg-alpha">
+        <div
+            class="srcbgCreateTable"
+            style={`background-image: url(${srcbgCreateTable});`}
+        >
+            <div class="createTables-bg">
+                <form
+                    on:submit|preventDefault={handleSubmit}
+                    class="createTables-content"
+                >
+                    <div class="content-section">
+                        <div class="horizontal">
+                            <h3>Name</h3>
+                            <input
+                                name="name"
+                                type="text"
+                                placeholder=" 00"
+                                required
+                                bind:value={tableName}
+                            />
                         </div>
+                        <div class="login-line-1" />
+                        <h4>Table name is required</h4>
+                    </div>
 
-                        <div class="content-section">
-                            <div class="horizontal">
-                                <h3>Player Count</h3>
-                                <input
-                                    name="name"
-                                    type="text"
-                                    autocomplete="on"
-                                    required
-                                    value="0"
-                                    size="3"
-                                />
-                            </div>
-                            <div class="login-line-1" />
+                    <div class="content-section">
+                        <div class="horizontal">
+                            <h3>Player Count</h3>
+                            <input
+                                name="name"
+                                type="text"
+                                required
+                                size="3"
+                                placeholder="0"
+                                bind:value={playerCount}
+                            />
                         </div>
+                        <div class="login-line-1" />
+                    </div>
 
-                        <div class="content-section">
-                            <div class="horizontal">
-                                <div class="vertical">
-                                    <div class="horizontal">
-                                        <h3>Start</h3>
-                                        <input
-                                            name="name"
-                                            type="time"
-                                            required
-                                        />
-                                    </div>
-                                    <div class="login-line-2" />
+                    <div class="content-section">
+                        <div class="horizontal">
+                            <div class="vertical">
+                                <div class="horizontal">
+                                    <h3>Start</h3>
+                                    <input
+                                        name="name"
+                                        type="time"
+                                        bind:value={start}
+                                        required
+                                    />
                                 </div>
+                                <div class="login-line-2" />
+                            </div>
 
-                                <div class="vertical">
-                                    <div class="horizontal">
-                                        <h3>Finish</h3>
-                                        <input
-                                            name="name"
-                                            type="time"
-                                            required
-                                        />
-                                    </div>
-                                    <div class="login-line-2" />
+                            <div class="vertical">
+                                <div class="horizontal">
+                                    <h3>Finish</h3>
+                                    <input
+                                        name="name"
+                                        type="time"
+                                        required
+                                        bind:value={finish}
+                                    />
                                 </div>
+                                <div class="login-line-2" />
                             </div>
                         </div>
+                    </div>
 
-                        <div class="buttons">
-                            <div on:click>
-                                <Button>
-                                    <span slot="buttonName">CANCEL</span>
-                                </Button>
-                            </div>
+                    <div class="buttons">
+                        <div on:click>
+                            <Button>
+                                <span slot="buttonName">CANCEL</span>
+                            </Button>
+                        </div>
                             <Button>
                                 <span slot="buttonName">CREATE</span>
                             </Button>
                         </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
 {/if}
 
 <style>
-    main {
-        position: fixed;
-        z-index: 2;
-    }
     .bg-alpha {
+        z-index: 2;
         position: fixed;
         height: 100%;
         display: flex;
@@ -111,7 +133,7 @@
         justify-content: center;
         height: 600px;
         width: 750px;
-        margin-top: 230px;
+        margin: auto;
     }
 
     .createTables-bg {
