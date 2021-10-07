@@ -1,6 +1,5 @@
 <script>
     import Button from "../component/Button.svelte";
-    let buttonSizeBig = true;
 
     let srcbgLoginPage = "./images/images-lg-page/bg-loginPage.png";
     let srcIconPerson = "./images/images-lg-page/icon-person.png";
@@ -67,9 +66,7 @@
             </div>
 
             <a href="#/home">
-                <Button {buttonSizeBig}>
-                    <span slot="buttonName">LOGIN</span>
-                </Button>
+                <Button size="button-size-big">LOGIN</Button>
             </a>
         </div>
     </div>

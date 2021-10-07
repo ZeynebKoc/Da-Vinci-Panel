@@ -4,8 +4,6 @@
     import Button from "../component/Button.svelte";
 
     let srcbgHomePage = "./images/images-homepage/bg-homePage.png";
-    /* button component variable */
-    let buttonSizeMedium = true;
     /* pop up variable */
     let showCreateTablePopUp = false;
 
@@ -134,9 +132,7 @@
         </div>
 
         <div class="button" on:click={toggleCreateTablePopUp}>
-            <Button {buttonSizeMedium}>
-                <span slot="buttonName">Add Table</span>
-            </Button>
+            <Button size="button-size-medium">Add Table</Button>
         </div>
     </form>
 </div>

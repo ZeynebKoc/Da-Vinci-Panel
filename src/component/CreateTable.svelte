@@ -26,7 +26,6 @@
         });
         showCreateTablePopUp = false;
     };
-
 </script>
 
 {#if showCreateTablePopUp}
@@ -102,14 +101,10 @@
 
                     <div class="buttons">
                         <div on:click>
-                            <Button>
-                                <span slot="buttonName">CANCEL</span>
-                            </Button>
+                            <Button>CANCEL</Button>
                         </div>
-                            <Button>
-                                <span slot="buttonName">CREATE</span>
-                            </Button>
-                        </div>
+                        <Button>CREATE</Button>
+                    </div>
                 </form>
             </div>
         </div>

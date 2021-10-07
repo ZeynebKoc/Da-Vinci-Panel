@@ -1,33 +1,29 @@
 <script>
-    export let buttonName;
-    let buttonSize;
-    export let buttonSizeBig;
-    export let buttonSizeMedium;
+    export let size = "default";
 </script>
 
-<button
-    class="btn"
-    class:button-size-big={buttonSizeBig}
-    class:button-size-medium={buttonSizeMedium}
->
-    <slot name="buttonName" {buttonName} />
+<button class={size}>
+    <slot />
 </button>
 
 <style>
-    .btn {
+    button {
         background: #da475d;
-        border-radius: 15px;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-        height: 50px;
-        width: 136px;
         font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 24px;
-        line-height: 29px;
         letter-spacing: 0.1em;
         color: #ffffff;
         cursor: pointer;
+    }
+
+    .default {
+        height: 50px;
+        width: 136px;
+        border-radius: 15px;
+        line-height: 29px;
     }
 
     .button-size-medium {
@@ -40,6 +36,8 @@
     .button-size-big {
         height: 54px;
         width: 326px;
+        border-radius: 15px;
+        line-height: 29px;
     }
 
     .btn:hover {
