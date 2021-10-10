@@ -32,7 +32,7 @@
                     required
                 />
             </div>
-            <div class="login-line-1" />
+            <div class="line" />
             <div class="password">
                 <img
                     src={srcIconPassword}
@@ -50,13 +50,14 @@
                     required
                 />
                 <i
+                    id="eye-icon"
                     class="circular eye link icon"
                     on:click={() => {
                         togglePassword();
                     }}
                 />
             </div>
-            <div class="login-line-2" />
+            <div class="line" />
             <div class="remember-forgot">
                 <div class="remember">
                     <input type="checkbox" />
@@ -76,13 +77,12 @@
     .srcbgLoginPage {
         display: flex;
         height: 100%;
-        width: 100%;
-        background-repeat: no-repeat;
+        max-width: 1440px;
+        max-height: 1440px;
     }
 
     .login-bg {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 550px;
@@ -90,99 +90,77 @@
         background: #ffffff;
         border-radius: 30px;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-        margin-left: 510px;
-        margin-top: 40px;
+        margin: auto;
     }
 
     .login-content {
-        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        height: 432px;
-        margin-bottom: 40px;
+        height: 80%;
+        margin-bottom: 10px;
     }
 
     .icon-person {
-        width: 165px;
-        height: 155px;
+        width: 45%;
+        height: 32%;
         opacity: 0.6;
     }
 
-    .email {
-        display: flex;
-        align-items: center;
-        position: relative;
-        bottom: 10px;
-        width: 296px;
-    }
-
-    .icon-email {
-        height: 11px;
-        width: 17px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-
+    .email,
     .password {
         display: flex;
-        align-items: center;
-        position: relative;
-        top: 3px;
-        width: 296px;
+        align-items: baseline;
+        width: 90%;
+    }
+
+    .icon-email,
+    .icon-password {
+        height: 50%;
+        width: 6%;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .icon-password {
-        height: 20px;
-        width: 17px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        height: 70%;
     }
 
-    input[type="email"] {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 300;
-        font-size: 18px;
-        color: #000000;
-        padding-left: 30px;
-        outline: 0;
+    #eye-icon {
+        position: relative;
+        right: 10px;
     }
 
+    input[type="email"],
     #password {
         font-family: "Montserrat", sans-serif;
         font-weight: 300;
         font-size: 18px;
         color: #000000;
-        padding-left: 30px;
+        margin-left: 30px;
         outline: 0;
     }
 
-    .login-line-1 {
-        width: 296px;
+    .line {
+        width: 90%;
         height: 1.2px;
         background: rgba(5, 5, 5, 0.5);
         position: relative;
-        bottom: 24px;
-    }
-    .login-line-2 {
-        width: 296px;
-        height: 1.2px;
-        background: rgba(5, 5, 5, 0.5);
-        position: relative;
-        bottom: 9px;
+        bottom: 18px;
     }
 
     .remember-forgot {
         display: flex;
-        width: 350px;
+        align-items: center;
+        width: 100%;
         position: relative;
-        bottom: 8px;
-        width: 332px;
+        bottom: 5px;
     }
 
     .remember {
         display: flex;
-        align-items: center;
-        width: 190px;
+        align-items: flex-start;
+        width: 80%;
     }
 
     input[type="checkbox"] {
@@ -193,7 +171,8 @@
         cursor: pointer;
     }
 
-    .rememberme-text {
+    .rememberme-text,
+    .forgot-text {
         font-family: "Montserrat", sans-serif;
         font-weight: 300;
         font-size: 14px;
@@ -202,13 +181,10 @@
     }
 
     .forgot-text {
-        font-family: "Montserrat", sans-serif;
         font-style: italic;
-        font-weight: 300;
-        font-size: 14px;
-        color: #000000;
-        padding-left: 40px;
-        width: 200px;
+        text-align: right;
+        width: 90%;
+        cursor: pointer;
     }
 
     .forgot-text:hover {

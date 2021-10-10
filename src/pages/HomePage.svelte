@@ -7,7 +7,10 @@
     /* pop up variable */
     let showCreateTablePopUp = false;
 
-    let date = "";
+    let getDate = new Date();
+    $: date = new Date(getDate.getTime() - getDate.getTimezoneOffset() * 60000)
+        .toISOString()
+        .split("T")[0];
     let activeTable = "";
     let activeCustomer = "";
     let totalTable = "";
@@ -42,77 +45,71 @@
     </ul>
     <form class="showTables-bg">
         <div class="showTables-content">
-            <div class="horizontal-1">
+            <div class="horizontal">
                 <h3>Date</h3>
-                <input
-                    name="date"
-                    type="date"
-                    required
-                    size="200"
-                    bind:value={date}
-                />
+                <input name="date" type="date" size="200" bind:value={date} />
             </div>
-            <div class="login-line-1" />
+            <div class="line" />
 
-            <div class="horizontal-2">
-                <div class="vertical-1">
-                    <div class="horizontal-3">
+            <div class="horizontal">
+                <div class="vertical">
+                    <div class="horizontal">
                         <h3>Active Table</h3>
                         <input
                             name="active-table"
                             type="text"
-                            required
                             size="3"
                             placeholder="0"
+                            readonly="readonly"
                             value={activeTable}
                         />
                     </div>
-                    <div class="login-line-2" />
+                    <div class="line" />
 
-                    <div class="horizontal-3">
+                    <div class="horizontal">
                         <h3>Active Customer</h3>
                         <input
                             name="active-customer"
                             type="text"
-                            required
                             size="2"
                             placeholder="0"
+                            readonly="readonly"
                             value={activeCustomer}
                         />
                     </div>
-                    <div class="login-line-2" />
+                    <div class="line" />
                 </div>
 
-                <div class="vertical-2">
-                    <div class="horizontal-3">
+                <div class="vertical">
+                    <div class="horizontal">
                         <h3>Total Table</h3>
                         <input
                             name="total-table"
                             type="text"
-                            required
                             size="3"
                             placeholder="0"
+                            readonly="readonly"
                             value={totalTable}
                         />
                     </div>
-                    <div class="login-line-2" />
+                    <div class="line" />
 
-                    <div class="horizontal-3">
+                    <div class="horizontal">
                         <h3>Total Customer</h3>
                         <input
                             name="total-customer"
                             type="text"
-                            required
                             size="3"
                             placeholder="0"
+                            readonly="readonly"
                             value={totalCustomer}
                         />
                     </div>
-                    <div class="login-line-2" />
+                    <div class="line" />
                 </div>
             </div>
 
-            <div class="horizontal-1">
+            <div class="horizontal">
                 <h3>Who's at cafe?</h3>
                 <label>
                     <select class="personnel" bind:value={whosAtCafe}>
@@ -120,7 +117,6 @@
                         <option value="Esra">Esra</option>
                         <option value="Zeyneb">Zeyneb</option>
                     </select>
-
                     <img
                         class="arrow"
                         src="./images/images-homepage/iconArrow.svg"
@@ -128,9 +124,8 @@
                     />
                 </label>
             </div>
-            <div class="login-line-1" />
+            <div class="line" />
         </div>
-
         <div class="button" on:click={toggleCreateTablePopUp}>
             <Button size="button-size-medium">Add Table</Button>
         </div>
@@ -145,7 +140,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        /* max-width: 1440px; */
+        max-width: 1440px;
         background: #e5e5e5;
         background-repeat: no-repeat;
     }
@@ -185,32 +180,29 @@
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
         height: 566px;
         width: 886px;
-        margin-top: 649px;
-        margin-bottom: 124px;
-        margin-left: 277px;
+        margin: 649px auto 124px auto;
     }
 
     .showTables-content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        height: 389px;
-        width: 775px;
+        justify-content: space-evenly;
+        height: 70%;
+        width: 90%;
     }
 
-    .horizontal-1,
-    .horizontal-2,
-    .horizontal-3 {
+    .horizontal {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: baseline;
     }
 
-    .vertical-1,
-    .vertical-2 {
+    .vertical {
         display: flex;
         flex-direction: column;
-        width: 332px;
+        justify-content: space-between;
+        height: 170px;
+        width: 45%;
     }
 
     h3 {
@@ -233,14 +225,14 @@
         border: none;
         outline: none;
         text-align: right;
-        cursor: pointer;
     }
 
     select {
         position: relative;
         left: 25px;
         appearance: none;
-        min-width: 545px;
+        width: 545px;
+        cursor: pointer;
     }
 
     option {
@@ -255,16 +247,11 @@
         pointer-events: none;
     }
 
-    .login-line-1,
-    .login-line-2 {
-        width: 100%;
+    .line {
+        position: relative;
+        bottom: 25px;
         height: 2px;
         background: rgba(5, 5, 5, 0.5);
-        margin-bottom: 48px;
-    }
-
-    .login-line-2 {
-        margin-bottom: 42px;
     }
 
     .button {
@@ -274,10 +261,8 @@
 
     /* show tables */
     .table-view-place {
-        flex-wrap: wrap;
         display: flex;
-        justify-content: space-between;
-        max-width: 100%;
-        margin-top: 50px;
+        flex-wrap: wrap;
+        max-width: 1440px;
     }
 </style>

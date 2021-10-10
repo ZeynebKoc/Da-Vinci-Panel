@@ -79,12 +79,19 @@
 <style>
     .srcbgTableView {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 400px;
-        width: 425px;
-        margin-bottom: 50px;
+        min-width: 29%;
+        margin-top: 50px;
+        margin-left: 3%;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .srcbgTableView {
+            width: 75%;
+            margin: 25px auto;
+        }
     }
 
     .srcbgTableView-bg {
@@ -94,23 +101,25 @@
         border-radius: 45px;
         box-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
         opacity: 0.9;
-        height: 325px;
-        width: 345px;
+        height: 80%;
+        width: 80%;
     }
 
     .srcbgTableView-content {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-top: 18px;
-        height: 255px;
+        margin: auto;
+        height: 80%;
+        width: 80%;
     }
 
     .content-section {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 220px;
+        height: 90%;
+        height: 90%;
     }
 
     .horizontal {
@@ -121,6 +130,7 @@
     .vertical {
         display: flex;
         flex-direction: column;
+        width: 40%;
     }
 
     .table-number {
@@ -167,21 +177,14 @@
     select {
         position: relative;
         bottom: 25px;
-        right: 20px;
         background: none;
         border: none;
         outline: none;
     }
 
-    .login-line-1 {
-        width: 288px;
-        height: 1px;
-        background: #000000;
-    }
-
+    .login-line-1,
     .login-line-2 {
         height: 1px;
-        width: 106px;
         background: #000000;
     }
 </style>

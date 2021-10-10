@@ -45,12 +45,13 @@
                             <input
                                 name="name"
                                 type="text"
+                                size="3"
                                 placeholder=" 00"
                                 required
                                 bind:value={tableName}
                             />
                         </div>
-                        <div class="login-line-1" />
+                        <div class="line" />
                         <h4>Table name is required</h4>
                     </div>
 
@@ -66,7 +67,7 @@
                                 bind:value={playerCount}
                             />
                         </div>
-                        <div class="login-line-1" />
+                        <div class="line" />
                     </div>
 
                     <div class="content-section">
@@ -77,11 +78,11 @@
                                     <input
                                         name="name"
                                         type="time"
-                                        bind:value={start}
                                         required
+                                        bind:value={start}
                                     />
                                 </div>
-                                <div class="login-line-2" />
+                                <div class="line" />
                             </div>
 
                             <div class="vertical">
@@ -94,7 +95,7 @@
                                         bind:value={finish}
                                     />
                                 </div>
-                                <div class="login-line-2" />
+                                <div class="line" />
                             </div>
                         </div>
                     </div>
@@ -116,9 +117,10 @@
         z-index: 2;
         position: fixed;
         height: 100%;
+        width: 100%;
         display: flex;
         justify-content: center;
-        width: 1440px;
+        max-width: 1440px;
         background: rgba(78, 77, 77, 0.67);
     }
 
@@ -135,23 +137,26 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         background: #ffffff;
         border-radius: 45px;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-        height: 414px;
-        width: 636px;
+        height: 75%;
+        width: 85%;
     }
 
     .createTables-content {
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
-        height: 383px;
-        align-items: stretch;
+        justify-content: center;
+        height: 85%;
+        width: 85%;
     }
 
     .content-section {
-        height: 97px;
+        height: 25%;
+        display: flex;
+        flex-direction: column;
     }
 
     .horizontal {
@@ -163,6 +168,7 @@
     .vertical {
         display: flex;
         flex-direction: column;
+        width: 42%;
     }
 
     h3 {
@@ -175,10 +181,10 @@
 
     h4 {
         position: relative;
-        bottom: 25px;
+        bottom: 20px;
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 22px;
         color: #da475d;
     }
@@ -196,27 +202,13 @@
         text-align: right;
     }
 
-    .login-line-1 {
-        width: 555px;
+    .line {
         height: 1px;
         background: rgba(5, 5, 5, 0.5);
-        position: relative;
-        bottom: 6px;
-    }
-
-    .login-line-2 {
-        width: 239px;
-        height: 1px;
-        background: rgba(5, 5, 5, 0.5);
-        position: relative;
-        bottom: 4px;
     }
 
     .buttons {
         display: flex;
         justify-content: space-between;
-        width: 555px;
-        position: relative;
-        bottom: 5px;
     }
 </style>

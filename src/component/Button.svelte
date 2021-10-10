@@ -40,7 +40,7 @@
         line-height: 29px;
     }
 
-    .btn:hover {
+    button:hover {
         background: rgba(218, 71, 93, 0.5);
     }
 </style>
