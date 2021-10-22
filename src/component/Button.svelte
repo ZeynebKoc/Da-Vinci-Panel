@@ -2,7 +2,7 @@
     export let size = "default";
 </script>
 
-<button class={size}>
+<button class={size} on:click>
     <slot />
 </button>
 

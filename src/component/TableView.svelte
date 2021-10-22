@@ -29,7 +29,7 @@
                                     required
                                     value={table.start}
                                 />
-                                <div class="login-line-2" />
+                                <div class="line" />
                             </div>
 
                             <div class="vertical">
@@ -40,7 +40,7 @@
                                     required
                                     value={table.finish}
                                 />
-                                <div class="login-line-2" />
+                                <div class="line" />
                             </div>
                         </div>
                     </div>
@@ -55,20 +55,20 @@
                             placeholder="Harry Potter: Hogwats Battle"
                             bind:value={table.currentGame}
                         />
-                        <div class="login-line-1" />
+                        <div class="line" />
                     </div>
 
                     <div>
                         <h3>Player Count</h3>
                         <input
                             name="name"
-                            type="text"
+                            type="number"
                             required
                             size="3"
                             placeholder="0"
                             value={table.playerCount}
                         />
-                        <div class="login-line-1" />
+                        <div class="line" />
                     </div>
                 </div>
             </form>
@@ -160,7 +160,8 @@
     }
 
     input[type="time"],
-    input[type="text"] {
+    input[type="text"],
+    input[type="number"] {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 18px;
@@ -182,8 +183,7 @@
         outline: none;
     }
 
-    .login-line-1,
-    .login-line-2 {
+    .line {
         height: 1px;
         background: #000000;
     }

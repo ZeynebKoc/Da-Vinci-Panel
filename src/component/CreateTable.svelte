@@ -2,8 +2,6 @@
     import storeData from "../stores/storeData";
     import Button from "./Button.svelte";
     let srcbgCreateTable = "./images/images-create-table/bg-create-table.png";
-    /* pop up variables */
-    export let showCreateTablePopUp;
 
     let tableName;
     let start;
@@ -24,11 +22,24 @@
                 tables: [...currentObject.tables, newTable],
             };
         });
-        showCreateTablePopUp = false;
+        toggleCreateTablePopUp();
+        tableName = "";
+        start = "";
+        finish = "";
+        playerCount = "";
+    };
+
+    const toggleCreateTablePopUp = () => {
+        storeData.update((currentObject) => {
+            return {
+                ...currentObject,
+                showCreateTablePopUp: false,
+            };
+        });
     };
 </script>
 
-{#if showCreateTablePopUp}
+
     <div class="bg-alpha">
         <div
             class="srcbgCreateTable"
@@ -44,7 +55,7 @@
                             <h3>Name</h3>
                             <input
                                 name="name"
-                                type="text"
+                                type="number"
                                 size="3"
                                 placeholder=" 00"
                                 required
@@ -60,7 +71,7 @@
                             <h3>Player Count</h3>
                             <input
                                 name="name"
-                                type="text"
+                                type="number"
                                 required
                                 size="3"
                                 placeholder="0"
@@ -101,7 +112,7 @@
                     </div>
 
                     <div class="buttons">
-                        <div on:click>
+                        <div on:click={toggleCreateTablePopUp}>
                             <Button>CANCEL</Button>
                         </div>
                         <Button>CREATE</Button>
@@ -110,7 +121,6 @@
             </div>
         </div>
     </div>
-{/if}
 
 <style>
     .bg-alpha {
@@ -190,7 +200,7 @@
     }
 
     input[type="time"],
-    input[type="text"] {
+    input[type="number"] {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 24px;
