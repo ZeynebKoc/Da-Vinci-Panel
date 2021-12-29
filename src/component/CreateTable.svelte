@@ -4,7 +4,10 @@
     let srcbgCreateTable = "./images/images-create-table/bg-create-table.png";
 
     let tableName;
-    let start;
+    $: start = new Date().toLocaleTimeString("en-GB", {
+        hour: "numeric",
+        minute: "numeric",
+    });
     let finish;
     let playerCount;
 
