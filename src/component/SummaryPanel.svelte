@@ -12,7 +12,15 @@
     let activeTable;
     let activeCustomer;
     $: totalTable = tables.length;
-    let totalCustomer;
+    $: totalCustomer = calculateTotalCustomer(tables);
+
+    const calculateTotalCustomer = (tables) => {
+        let total = 0;
+        tables.forEach((table) => {
+            total += table.playerCount;
+        });
+        return total;
+    };
     let whosAtCafe;
 
     /* pop up function */
