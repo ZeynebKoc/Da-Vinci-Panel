@@ -1,8 +1,8 @@
 <script>
     import storeData from "../stores/storeData";
-    import ShowTables from "../component/ShowTables.svelte";
+    import SummaryPanel from "../component/SummaryPanel.svelte";
     import CreateTable from "../component/CreateTable.svelte";
-    import TableView from "../component/TableView.svelte";
+    import TablesView from "../component/TablesView.svelte";
 
     let srcbgHomePage = "./images/images-homepage/bg-homePage.png";
     /* pop up variable */
@@ -10,17 +10,17 @@
 </script>
 
 {#if showCreateTablePopUp}
-<CreateTable />
+    <CreateTable />
 {/if}
 <div class="srcbgHomePage" style={`background-image: url(${srcbgHomePage});`}>
     <ul>
         <li><a class="home" href="#/home">Home</a></li>
         <li><a class="logOut" href="#/">Log Out</a></li>
     </ul>
-    <ShowTables />
+    <SummaryPanel />
 </div>
 <div class="table-view-place">
-    <TableView />
+    <TablesView />
 </div>
 
 <style>

@@ -15,19 +15,6 @@
     let totalCustomer;
     let whosAtCafe;
 
-    /* home page'ye gönderilecek verileri submit fonksiyonu */
-    /* const handleSubmitCounter = (option, id) => {
-        storeData.update((currentObject) => {
-            let copiedTables = [...currentObject];
-            let upTable = copiedTables.find((tables) => tables.id == id);
-
-            if (option === "totalCustomer") {
-                copiedTables.playerCount + upTable.playerCount;
-            }
-            return copiedTables;
-        });
-    }; */
-
     /* pop up function */
     const toggleCreateTablePopUp = () => {
         storeData.update((currentObject) => {
@@ -39,7 +26,7 @@
     };
 </script>
 
-<form class="showTables-bg">
+<div class="showTables-bg">
     <div class="showTables-content">
         <div class="horizontal">
             <h3>Date</h3>
@@ -97,7 +84,7 @@
                         size="3"
                         placeholder="0"
                         readonly="readonly"
-                        bind:value={totalCustomer}
+                        value={totalCustomer}
                     />
                 </div>
                 <div class="line" />
@@ -126,7 +113,7 @@
             >Add Table</Button
         >
     </div>
-</form>
+</div>
 
 <style>
     .showTables-bg {

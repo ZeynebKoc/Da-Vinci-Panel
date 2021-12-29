@@ -40,87 +40,83 @@
 </script>
 
 
-    <div class="bg-alpha">
-        <div
-            class="srcbgCreateTable"
-            style={`background-image: url(${srcbgCreateTable});`}
-        >
-            <div class="createTables-bg">
-                <form
-                    on:submit|preventDefault={handleSubmit}
-                    class="createTables-content"
-                >
-                    <div class="content-section">
-                        <div class="horizontal">
-                            <h3>Name</h3>
-                            <input
-                                name="name"
-                                type="number"
-                                size="3"
-                                placeholder=" 00"
-                                required
-                                bind:value={tableName}
-                            />
-                        </div>
-                        <div class="line" />
-                        <h4>Table name is required</h4>
+<div class="bg-alpha">
+    <div
+        class="srcbgCreateTable"
+        style={`background-image: url(${srcbgCreateTable});`}
+    >
+        <div class="createTables-bg">
+            <form
+                on:submit|preventDefault={handleSubmit}
+                class="createTables-content"
+            >
+                <div class="content-section">
+                    <div class="horizontal">
+                        <h3>Name</h3>
+                        <input
+                            name="name"
+                            type="text"
+                            size="3"
+                            placeholder=" 00"
+                            required
+                            bind:value={tableName}
+                        />
                     </div>
+                    <div class="line" />
+                    <h4>Table name is required</h4>
+                </div>
 
-                    <div class="content-section">
-                        <div class="horizontal">
-                            <h3>Player Count</h3>
-                            <input
-                                name="name"
-                                type="number"
-                                required
-                                size="3"
-                                placeholder="0"
-                                bind:value={playerCount}
-                            />
-                        </div>
-                        <div class="line" />
+                <div class="content-section">
+                    <div class="horizontal">
+                        <h3>Player Count</h3>
+                        <input
+                            name="name"
+                            type="number"
+                            required
+                            size="3"
+                            placeholder="0"
+                            bind:value={playerCount}
+                        />
                     </div>
+                    <div class="line" />
+                </div>
 
-                    <div class="content-section">
-                        <div class="horizontal">
-                            <div class="vertical">
-                                <div class="horizontal">
-                                    <h3>Start</h3>
-                                    <input
-                                        name="name"
-                                        type="time"
-                                        required
-                                        bind:value={start}
-                                    />
-                                </div>
-                                <div class="line" />
+                <div class="content-section">
+                    <div class="horizontal">
+                        <div class="vertical">
+                            <div class="horizontal">
+                                <h3>Start</h3>
+                                <input
+                                    name="name"
+                                    type="time"
+                                    bind:value={start}
+                                />
                             </div>
+                            <div class="line" />
+                        </div>
 
-                            <div class="vertical">
-                                <div class="horizontal">
-                                    <h3>Finish</h3>
-                                    <input
-                                        name="name"
-                                        type="time"
-                                        required
-                                        bind:value={finish}
-                                    />
-                                </div>
-                                <div class="line" />
+                        <div class="vertical">
+                            <div class="horizontal">
+                                <h3>Finish</h3>
+                                <input
+                                    name="name"
+                                    type="time"
+                                    bind:value={finish}
+                                />
                             </div>
+                            <div class="line" />
                         </div>
                     </div>
+                </div>
 
-                    <div class="buttons">
-                        <div on:click={toggleCreateTablePopUp}>
-                            <Button>CANCEL</Button>
-                        </div>
-                        <Button>CREATE</Button>
-                    </div>
-                </form>
-            </div>
+                <div class="buttons">
+                    <Button on:click={toggleCreateTablePopUp}>CANCEL</Button>
+                    <Button>CREATE</Button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 <style>
     .bg-alpha {
@@ -200,7 +196,8 @@
     }
 
     input[type="time"],
-    input[type="number"] {
+    input[type="number"],
+    input[type="text"] {
         font-family: "Montserrat", sans-serif;
         font-weight: 500;
         font-size: 24px;
