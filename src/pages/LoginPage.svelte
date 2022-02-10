@@ -6,13 +6,33 @@
     let srcIconEmail = "./images/images-lg-page/icon-email.png";
     let srcIconPassword = "./images/images-lg-page/icon-password.png";
 
+    let username;
+    let password;
+    
     /* show-hide password */
     const togglePassword = () => {
         let showPassword = document.getElementById("password");
         showPassword.type =
             showPassword.type == "password" ? "text" : "password";
     };
-    /* show-hide password */
+
+    async function loginUser() {
+        const response = await fetch(
+            "https://api.davinciboardgame.com/users/login",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                }),
+            }
+        );
+        const data = await response.json();
+        console.log(data);
+    }
 </script>
 
 <div class="srcbgLoginPage" style={`background-image: url(${srcbgLoginPage});`}>
@@ -30,6 +50,7 @@
                     placeholder="Email ID"
                     autocomplete="on"
                     required
+                    value={username}
                 />
             </div>
             <div class="line" />
@@ -48,6 +69,7 @@
                     minlength="4"
                     maxlength="18"
                     required
+                    value={password}
                 />
                 <i
                     id="eye-icon"
